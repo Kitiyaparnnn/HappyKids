@@ -1,0 +1,16 @@
+version: '1.1'
+services:
+  mongo: 
+    image: mongo:5.0.3
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INTID_ROOT_USERNAME: user
+      MONGO_INTID_ROOT_PASSWORD: 123
+  mongo-express:
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGO_INTID_ROOT_USERNAME: user
+      ME_MONGO_INTID_USERNAME: user
+      ME_CONFIG_MONGODB_URL: mongodb://user:123@mongo:27017/
